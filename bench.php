@@ -41,7 +41,7 @@ bench('compile', function(){
 
 bench('plain', function(){
     $mapped = [];
-    for ($v = 0; $v <= RANGEMAX; ++$v) {
+    foreach (range(0, RANGEMAX) as $v) {
         if ($v % 2) continue;
         $v **= 2;
         if ($v <= 20) continue;
@@ -59,7 +59,7 @@ bench('plain+array', function(){
                 function ($v) {
                     return $v ** 2;
                 },
-                array_filter(range(0, 10000), function ($v) {
+                array_filter(range(0, RANGEMAX), function ($v) {
                     return $v % 2 === 0;
                 })
             ),
